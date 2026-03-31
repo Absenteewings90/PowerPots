@@ -15,7 +15,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
 
         // Tier 1
-        shapedRecipeBuilder.shaped(RecipeCategory.Misc, ModBlocks.POWER_BLOCKS.get(0).get())
+        shapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.POWER_BLOCKS.get(0).get())
             .pattern("aaa")
             .pattern("bcb")
             .pattern("ded")
@@ -28,7 +28,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .save(pWriter);
 
         // Tier 2
-        shapedRecipeBuilder.shaped(RecipeCategory.Misc, ModBlocks.POWER_BLOCKS.get(1).get())
+        shapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.POWER_BLOCKS.get(1).get())
             .pattern("aaa")
             .pattern("bcb")
             .pattern("ded")
@@ -41,7 +41,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .save(pWriter);
 
         // Tier 3
-        shapedRecipeBuilder.shaped(RecipeCategory.Misc, ModBlocks.POWER_BLOCKS.get(2).get())
+        shapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.POWER_BLOCKS.get(2).get())
             .pattern("aaa")
             .pattern("bcb")
             .pattern("ded")
