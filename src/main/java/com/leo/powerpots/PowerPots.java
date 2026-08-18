@@ -28,10 +28,30 @@ public class PowerPots {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.ITEMS.register(modEventBus);
+        ModUpgrades.SPEED_UPGRADE.getId();
+        ModUpgrades.OUTPUT_UPGRADE.getId();
+        ModUpgrades.ENERGY_UPGRADE.getId();
+        ModUpgrades.FORTUNE_UPGRADE.getId();
 
         ModBlocks.register(modEventBus);
+        ModMenuTypes.MENUS.register(modEventBus);
 
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+
+        modEventBus.addListener(this::registerPayloads);
+    }
+
+    private void registerPayloads(RegisterPayloadHandlersEvent event) {
+        final PayloadRegistrar registrar = event.registrar("1");
+        registrar.playToServer(
+                OpenUpgradeGuiPacket.TYPE,
+                OpenUpgradeGuiPacket.STREAM_CODEC,
+                OpenUpgradeGuiPacket::handle
+        );
+    }
+
+    public static ResourceLocation modLoc(String path) {
+        return ResourceLocation.fromNamespaceAndPath("powerpots", path);
     }
 }
