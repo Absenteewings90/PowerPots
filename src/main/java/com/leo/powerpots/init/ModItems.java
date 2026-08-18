@@ -1,12 +1,16 @@
 package com.leo.powerpots.init;
 
-import com.leo.powerpots.PowerPots;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class ModItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PowerPots.MODID);
+public class Moditems {
+    public static final DeferredRegister<Item> ITEMS;
 
+    public Moditems() {
+    }
 
+    static {
+        ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, "powerpots");
+    }
 }
