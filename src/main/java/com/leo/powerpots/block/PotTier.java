@@ -43,5 +43,4 @@ public final class PotTier {
     public int itemAmountMultiplier() {
         return itemAmountMultiplier;
     }
-
 }
