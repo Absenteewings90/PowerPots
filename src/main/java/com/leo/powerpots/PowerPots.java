@@ -1,10 +1,8 @@
 package com.leo.powerpots;
 
 import com.leo.powerpots.config.Config;
-import com.leo.powerpots.init.ModBlockEntities;
-import com.leo.powerpots.init.ModBlocks;
-import com.leo.powerpots.init.ModCreativeTabs;
-import com.leo.powerpots.init.ModItems;
+import com.leo.powerpots.init.*;
+import com.leo.powerpots.network.ModNetworking;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -28,10 +26,15 @@ public class PowerPots {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.ITEMS.register(modEventBus);
+        ModUpgrades.SPEED_UPGRADE.getId();
+        ModUpgrades.OUTPUT_UPGRADE.getId();
+        ModUpgrades.ENERGY_UPGRADE.getId();
+        ModUpgrades.FORTUNE_UPGRADE.getId();
 
         ModBlocks.register(modEventBus);
-
         ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModMenuTypes.MENUS.register(modEventBus);
+        ModNetworking.register();
     }
 }
