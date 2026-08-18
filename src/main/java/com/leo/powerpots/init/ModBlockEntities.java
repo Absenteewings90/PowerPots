@@ -18,4 +18,5 @@ public class ModBlockEntities {
         BLOCK_ENTITIES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, "powerpots");
         POWER_POT_BE = BLOCK_ENTITIES.register("power_pot_be", () -> Builder.of(PowerPotBlockEntity::new, ModBlocks.getBlocks()).build(null));
     }
+}
 
