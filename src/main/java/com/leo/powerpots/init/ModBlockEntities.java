@@ -1,21 +1,21 @@
 package com.leo.powerpots.init;
 
-import com.leo.powerpots.PowerPots;
-import com.leo.powerpots.block.entity.PowerPotBE;
+import com.leo.powerpots.block.entity.PowerPotBlockEntity;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModBlockEntities {
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, PowerPots.MODID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES;
+    public static DeferredHolder<BlockEntityType<?>, BlockEntityType<PowerPotBlockEntity>> POWER_POT_BE;
 
+    public ModBlockEntities() {
+    }
 
-    public static RegistryObject<BlockEntityType<PowerPotBE>> POWER_POT_BE = BLOCK_ENTITIES.register("power_pot_be",
-        () -> BlockEntityType.Builder.of(
-            PowerPotBE::new,
-            ModBlocks.getBlocks()
-        ).build(null)
-    );
+    static {
+        BLOCK_ENTITIES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, "powerpots");
+        POWER_POT_BE = BLOCK_ENTITIES.register("power_pot_be", () -> Builder.of(PowerPotBlockEntity::new, ModBlocks.getBlocks()).build(null));
+    }
 
-}
