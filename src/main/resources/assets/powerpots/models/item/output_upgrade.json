@@ -1,0 +1,6 @@
+{
+  "parent": "powerpots:item/upgrade_base",
+  "textures": {
+    "upgrade_indicator": "powerpots:item/output_upgrade"
+  }
+}
